@@ -1,0 +1,15 @@
+stages:
+  - test
+
+test_tun_job:
+  stage: test
+  tags:
+    - GB, HW, T
+  only:
+    - lesson_8
+  script:
+    -mvn clean test -DsuiteXmlFile=testing.xml
+  artifacts:
+    when: always
+    paths:
+      - allure-results
